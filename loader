@@ -1,0 +1,218 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local Credits = Instance.new("TextLabel")
+local Equip = Instance.new("TextButton")
+local Farm = Instance.new("TextButton")
+local Gained = Instance.new("TextButton")
+local Count = Instance.new("TextButton")
+local Hud = Instance.new("TextButton")
+local Ping = Instance.new("TextButton")
+local Rumble = Instance.new("TextButton")
+local Afk = Instance.new("TextButton")
+local Lock = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.678274035, 0, 0.533447683, 0)
+Frame.Size = UDim2.new(0, 404, 0, 229)
+Frame.Active = true
+Frame.Draggable = true
+
+UICorner.Parent = Frame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 153, 10)), ColorSequenceKeypoint.new(0.91, Color3.fromRGB(255, 215, 160)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = Frame
+
+Credits.Name = "Credits"
+Credits.Parent = Frame
+Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credits.BackgroundTransparency = 1.000
+Credits.Size = UDim2.new(0, 404, 0, 50)
+Credits.Font = Enum.Font.GothamBlack
+Credits.Text = "Classic Click Lift - By Vert"
+Credits.TextColor3 = Color3.fromRGB(0, 0, 0)
+Credits.TextSize = 30.000
+
+Equip.Name = "Equip"
+Equip.Parent = Frame
+Equip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Equip.BackgroundTransparency = 1.000
+Equip.Position = UDim2.new(0.62376231, 0, 0.781659365, 0)
+Equip.Size = UDim2.new(0, 152, 0, 50)
+Equip.Font = Enum.Font.GothamBlack
+Equip.Text = "Equip Weights"
+Equip.TextColor3 = Color3.fromRGB(0, 0, 0)
+Equip.TextScaled = true
+Equip.TextSize = 20.000
+Equip.TextWrapped = true
+Equip.MouseButton1Click:Connect(function()
+	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+		if v.Name == "Double Weight" then
+			v:Activate()
+			v.Parent = game.Players.LocalPlayer.Character
+		end
+	end
+end)
+
+Farm.Name = "Farm"
+Farm.Parent = Frame
+Farm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Farm.BackgroundTransparency = 1.000
+Farm.Position = UDim2.new(0.599009871, 0, 0.388646305, 0)
+Farm.Size = UDim2.new(0, 152, 0, 50)
+Farm.Font = Enum.Font.GothamBlack
+Farm.Text = "Click Lift"
+Farm.TextColor3 = Color3.fromRGB(0, 0, 0)
+Farm.TextScaled = true
+Farm.TextSize = 20.000
+Farm.TextWrapped = true
+Farm.MouseButton1Click:connect(function()
+	_G.Auto4 = true
+	while _G.Auto4 do
+		wait(4.2)
+		for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+			if v.Name == "Double Weight" then v:Activate() end
+
+
+		end
+	end
+end)
+
+
+Gained.Name = "Gained"
+Gained.Parent = Frame
+Gained.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Gained.BackgroundTransparency = 1.000
+Gained.Position = UDim2.new(0.0346534662, 0, 0.218340605, 0)
+Gained.Size = UDim2.new(0, 152, 0, 50)
+Gained.Font = Enum.Font.GothamBlack
+Gained.Text = "Strength Gained Script"
+Gained.TextColor3 = Color3.fromRGB(0, 0, 0)
+Gained.TextScaled = true
+Gained.TextSize = 14.000
+Gained.TextWrapped = true
+Gained.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/PrivateFarm/Gained/main/loader"))()
+end)
+
+Count.Name = "Count"
+Count.Parent = Frame
+Count.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Count.BackgroundTransparency = 1.000
+Count.Position = UDim2.new(0.0346534662, 0, 0.489082992, 0)
+Count.Size = UDim2.new(0, 152, 0, 50)
+Count.Font = Enum.Font.GothamBlack
+Count.Text = "Count Weights Script"
+Count.TextColor3 = Color3.fromRGB(0, 0, 0)
+Count.TextScaled = true
+Count.TextSize = 14.000
+Count.TextWrapped = true
+Count.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/PrivateFarm/Count/main/loader"))()
+end)
+
+Hud.Name = "Hud"
+Hud.Parent = Frame
+Hud.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Hud.BackgroundTransparency = 1.000
+Hud.Position = UDim2.new(0, 0, 0.781659365, 0)
+Hud.Size = UDim2.new(0, 72, 0, 50)
+Hud.Font = Enum.Font.GothamBlack
+Hud.Text = "HUD"
+Hud.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hud.TextScaled = true
+Hud.TextSize = 14.000
+Hud.TextWrapped = true
+Hud.MouseButton1Click:Connect(function()
+	game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
+end)
+
+Ping.Name = "Ping"
+Ping.Parent = Frame
+Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Ping.BackgroundTransparency = 1.000
+Ping.Position = UDim2.new(0.217821777, 0, 0.781659365, 0)
+Ping.Size = UDim2.new(0, 72, 0, 50)
+Ping.Font = Enum.Font.GothamBlack
+Ping.Text = "Clouds"
+Ping.TextColor3 = Color3.fromRGB(0, 0, 0)
+Ping.TextScaled = true
+Ping.TextSize = 14.000
+Ping.TextWrapped = true
+Ping.MouseButton1Click:Connect(function()
+	game:GetService("Workspace").Clouds:Destroy()
+	for i,v in pairs(player.PlayerScripts:GetChildren()) do
+		if v.Name == "LocalScript" then
+			v:Destroy()
+		end
+	end
+end)
+
+Rumble.Name = "Rumble"
+Rumble.Parent = Frame
+Rumble.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rumble.BackgroundTransparency = 1.000
+Rumble.Position = UDim2.new(0.705445528, 0, 0.563318729, 0)
+Rumble.Size = UDim2.new(0, 107, 0, 50)
+Rumble.Font = Enum.Font.GothamBlack
+Rumble.Text = "Rumble"
+Rumble.TextColor3 = Color3.fromRGB(0, 0, 0)
+Rumble.TextScaled = true
+Rumble.TextSize = 48.000
+Rumble.TextWrapped = true
+Rumble.MouseButton1Click:Connect(function()
+	game:GetService("ReplicatedFirst").TourneyQ:Destroy()
+end)
+
+Afk.Name = "Afk"
+Afk.Parent = Frame
+Afk.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Afk.BackgroundTransparency = 1.000
+Afk.Position = UDim2.new(0.438118815, 0, 0.781659365, 0)
+Afk.Size = UDim2.new(0, 65, 0, 50)
+Afk.Font = Enum.Font.GothamBlack
+Afk.Text = "AFK"
+Afk.TextColor3 = Color3.fromRGB(0, 0, 0)
+Afk.TextScaled = true
+Afk.TextSize = 14.000
+Afk.TextWrapped = true
+Afk.MouseButton1Click:Connect(function()
+	local VirtualUser=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+		VirtualUser:CaptureController()
+		VirtualUser:ClickButton2(Vector2.new())
+	end)
+end)
+
+Lock.Name = "Lock"
+Lock.Parent = Frame
+Lock.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Lock.BackgroundTransparency = 1.000
+Lock.Position = UDim2.new(0.507425725, 0, 0.174672484, 0)
+Lock.Size = UDim2.new(0, 175, 0, 49)
+Lock.Font = Enum.Font.GothamBlack
+Lock.Text = "Lock PLR"
+Lock.TextColor3 = Color3.fromRGB(0, 0, 0)
+Lock.TextScaled = true
+Lock.TextSize = 14.000
+Lock.TextWrapped = true
+Lock.MouseButton1Click:Connect(function()
+	if Locked == false then
+		Locked = true
+		Lock(true)
+	elseif Locked == true then
+		Locked = false
+		Lock(false)
+	end
+end)
